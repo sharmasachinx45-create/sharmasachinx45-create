@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium 3D Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 8%;
+      gap: 40px;
+    }
+
+    .content {
+      max-width: 500px;
+    }
+
+    h1 {
+      font-size: 60px;
+      line-height: 1.1;
+    }
+
+    p {
+      color: #aaa;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .visual {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6c63ff, #00d4ff);
+      box-shadow: 0 0 80px #3434ff;
+    
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+    }
+    .visual {
+  background: radial-gradient(
+    circle at 30% 25%,
+    #ffffff,
+    #00d4ff 25%,
+    #6c63ff 60%,
+    #16002f
+  );
+
+  box-shadow:
+    0 0 40px #3434ff,
+    0 0 100px #00d4ff,
+    inset -30px -30px 60px #16002f;
+}
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="content">
+      <p>CREATIVE DIGITAL EXPERIENCE</p>
+      <h1>Design Beyond Limits.</h1>
+      <p>Explore a new dimension of premium web design.</p>
+    </div>
+
+    <div class="visual"></div>
+  </section>
+<script>
+  const visual = document.querySelector(".visual");
+
+  document.addEventListener("mousemove", (event) => {
+    const x = (event.clientX / window.innerWidth - 0.5) * 30;
+    const y = (event.clientY / window.innerHeight - 0.5) * 30;
+
+    visual.style.transform =
+      'perspective(600px) rotateY(${x}deg) rotateX(${-y}deg);
+  });
+</script>
+</body>
+</html>
